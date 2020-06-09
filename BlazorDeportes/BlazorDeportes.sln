@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDeportes", "BlazorDep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDeporte.Model", "BlazorDeporte.Model\BlazorDeporte.Model.csproj", "{21D13480-1173-4688-9E2A-E04F154F0AC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDeportes.Data.Dapper", "BlazorDeportes.Data.Dapper\BlazorDeportes.Data.Dapper.csproj", "{9BDCB9D5-8B46-4CF9-A75C-8AFBB3671891}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{21D13480-1173-4688-9E2A-E04F154F0AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21D13480-1173-4688-9E2A-E04F154F0AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21D13480-1173-4688-9E2A-E04F154F0AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BDCB9D5-8B46-4CF9-A75C-8AFBB3671891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BDCB9D5-8B46-4CF9-A75C-8AFBB3671891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BDCB9D5-8B46-4CF9-A75C-8AFBB3671891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BDCB9D5-8B46-4CF9-A75C-8AFBB3671891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

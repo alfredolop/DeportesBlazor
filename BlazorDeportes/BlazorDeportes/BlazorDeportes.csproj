@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorDeporte.Model\BlazorDeporte.Model.csproj" />
+    <ProjectReference Include="..\BlazorDeportes.Data.Dapper\BlazorDeportes.Data.Dapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
