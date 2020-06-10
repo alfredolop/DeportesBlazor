@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorDeporte.Model\BlazorDeporte.Model.csproj" />
+    <ProjectReference Include="..\BlazorDeporte.Model\BlazorDeportes.Model.csproj" />
     <ProjectReference Include="..\BlazorDeportes.Data.Dapper\BlazorDeportes.Data.Dapper.csproj" />
   </ItemGroup>
 

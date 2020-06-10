@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlazorDeporte.Model
+namespace BlazorDeportes.Model
 {
     public class Deporte
     {

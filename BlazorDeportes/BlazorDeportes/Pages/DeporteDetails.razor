@@ -1,7 +1,34 @@
-﻿@page "/deportedetails" 
+﻿@page "/deportedetails"
+@using BlazorDeportes.Model;
 
 <h3>DeporteDetails</h3>
 
+<EditForm Model="@deporte">
+    <table class="table">
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" @bind="deporte.Name" /></td>
+        </tr>
+        <tr>
+            <td>NumJugadores:</td>
+            <td><input type="text" @bind="deporte.NumJugadores" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <input type="submit" value="Save" />
+                <input type="button" value="Cancel" @onclick="CancelDeporte" />
+            </td>
+        </tr>
+    </table>
+</EditForm>
+
 @code {
+
+    Deporte deporte = new Deporte();
+
+    protected void CancelDeporte()
+    {
+
+    }
 
 }
