@@ -1,4 +1,5 @@
 ﻿using BlazorDeportes.Model;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -26,11 +27,14 @@ namespace BlazorDeportes.Data.Dapper.Repositories
         {
             throw new NotImplementedException();
         }
-        public Task<bool> InsertDeporte(Deporte deporte)
+        public async Task<bool> InsertDeporte(Deporte deporte)
         {
             var db = dbConnection();
             var sql = @"INSERT INTO Deportes (Name, NumJugadores)
                         VALUES (@Name, @NumJugadores)";
+            var result = await db.ExecuteAsync(sql.ToString(),
+                new { deporte.Name, deporte.NumJugadores });
+            return result > 0;
         }
         public Task<bool> UpdateDeporte(Deporte deporte)
         {
