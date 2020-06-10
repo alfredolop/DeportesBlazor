@@ -1,5 +1,7 @@
 ﻿@page "/deportedetails"
-@using BlazorDeportes.Model;
+@using BlazorDeportes.Model
+@using Interfaces
+@inject IDeporteService DeporteService
 
 <h3>DeporteDetails</h3>
 
@@ -15,7 +17,7 @@
         </tr>
         <tr>
             <td colspan="2" style="text-align:center">
-                <input type="submit" value="Save" />
+                <input type="submit" value="Save" @onclick="SaveDeporte"/>
                 <input type="button" value="Cancel" @onclick="CancelDeporte" />
             </td>
         </tr>
@@ -29,6 +31,10 @@
     protected void CancelDeporte()
     {
 
+    }
+    protected async Task SaveDeporte()
+    {
+        await DeporteService.SaveDeporte(deporte);
     }
 
 }

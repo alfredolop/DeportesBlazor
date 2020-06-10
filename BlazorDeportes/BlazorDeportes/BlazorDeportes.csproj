@@ -9,8 +9,4 @@
     <ProjectReference Include="..\BlazorDeportes.Data.Dapper\BlazorDeportes.Data.Dapper.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
 </Project>

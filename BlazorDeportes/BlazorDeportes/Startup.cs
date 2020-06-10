@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlazorDeportes.Data;
+using BlazorDeportes.Interfaces;
+using BlazorDeportes.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +30,10 @@ namespace BlazorDeportes
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddScoped<IDeporteService, DeporteService>();
+
+            var sqlConnectionConfiguration = new SqlConfiguration(Configuration.GetConnectionString("Data Source=ALFREDO\\SQLEXPRESS;Initial Catalog=BlazorDeportes;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=Re adWrite;MultiSubnetFailover=False"));
+            services.AddSingleton(sqlConnectionConfiguration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

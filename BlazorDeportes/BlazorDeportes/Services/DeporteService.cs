@@ -1,4 +1,6 @@
-﻿using BlazorDeportes.Interfaces;
+﻿using BlazorDeportes.Data;
+using BlazorDeportes.Data.Dapper.Repositories;
+using BlazorDeportes.Interfaces;
 using BlazorDeportes.Model;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,13 @@ namespace BlazorDeportes.Services
 {
     public class DeporteService : IDeporteService
     {
+        private readonly SqlConfiguration _configuration;
+        private IDeporteRepository _deporterepository;
+        public DeporteService(SqlConfiguration configuration)
+        {
+            _configuration = configuration;
+            _deporterepository = new DeporteRepository(configuration.ConnectionString);
+        }
         public Task<IEnumerable<Deporte>> GetAllDeportes()
         {
             throw new NotImplementedException();
@@ -23,7 +32,10 @@ namespace BlazorDeportes.Services
         }
         public Task<bool> SaveDeporte(Deporte deporte)
         {
-            throw new NotImplementedException();
+            if (deporte.id == 0)
+                return _deporterepository.InsertDeporte(deporte);
+            else
+                return null;
         }
     }
 }
