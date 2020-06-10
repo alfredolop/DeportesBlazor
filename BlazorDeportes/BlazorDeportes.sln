@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDeportes", "BlazorDeportes\BlazorDeportes.csproj", "{21782817-1E2C-4DA4-9EEB-880D438B0B18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDeportes", "BlazorDeportes\BlazorDeportes.csproj", "{21782817-1E2C-4DA4-9EEB-880D438B0B18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDeporte.Model", "BlazorDeporte.Model\BlazorDeporte.Model.csproj", "{21D13480-1173-4688-9E2A-E04F154F0AC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDeporte.Model", "BlazorDeporte.Model\BlazorDeporte.Model.csproj", "{21D13480-1173-4688-9E2A-E04F154F0AC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDeportes.Data.Dapper", "BlazorDeportes.Data.Dapper\BlazorDeportes.Data.Dapper.csproj", "{9BDCB9D5-8B46-4CF9-A75C-8AFBB3671891}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorDeportes.Data.Dapper", "BlazorDeportes.Data.Dapper\BlazorDeportes.Data.Dapper.csproj", "{9BDCB9D5-8B46-4CF9-A75C-8AFBB3671891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
