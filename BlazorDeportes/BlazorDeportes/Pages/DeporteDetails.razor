@@ -1,7 +1,9 @@
 ﻿@page "/deportedetails"
+@page "/deportedetails/{id:int}"
 @using BlazorDeportes.Model
 @using Interfaces
 @inject IDeporteService DeporteService
+@inject NavigationManager NavigationManager
 
 <h3>DeporteDetails</h3>
 
@@ -26,15 +28,30 @@
 
 @code {
 
+    [Parameter]
+    public int id { get; set; }
+
     Deporte deporte = new Deporte();
 
     protected void CancelDeporte()
     {
-
+        NavigationManager.NavigateTo("/deportelist");
     }
     protected async Task SaveDeporte()
     {
         await DeporteService.SaveDeporte(deporte);
+        NavigationManager.NavigateTo("/deportelist");
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        if (id == 0)
+        {
+
+        }
+        else
+        {
+            deporte = await DeporteService.GetDetails(id);
+        }
     }
 
 }

@@ -32,7 +32,7 @@ namespace BlazorDeportes
             services.AddServerSideBlazor();
             services.AddScoped<IDeporteService, DeporteService>();
 
-            var sqlConnectionConfiguration = new SqlConfiguration(Configuration.GetConnectionString("Data Source=ALFREDO\\SQLEXPRESS;Initial Catalog=BlazorDeportes;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=Re adWrite;MultiSubnetFailover=False"));
+            var sqlConnectionConfiguration = new SqlConfiguration(Configuration.GetConnectionString("SqlConnection"));
             services.AddSingleton(sqlConnectionConfiguration);
         }
 

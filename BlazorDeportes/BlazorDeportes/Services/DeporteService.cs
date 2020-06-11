@@ -24,7 +24,7 @@ namespace BlazorDeportes.Services
         }
         public Task<Deporte> GetDetails(int id)
         {
-            throw new NotImplementedException();
+            return _deporterepository.GetDeporteDetails(id);
         }
         public Task<bool> DeleteDeporte(int id)
         {
@@ -35,7 +35,7 @@ namespace BlazorDeportes.Services
             if (deporte.id == 0)
                 return _deporterepository.InsertDeporte(deporte);
             else
-                return null;
+                return _deporterepository.UpdateDeporte(deporte);
         }
     }
 }

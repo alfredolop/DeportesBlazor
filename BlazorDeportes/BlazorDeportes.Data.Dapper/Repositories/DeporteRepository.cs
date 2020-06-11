@@ -23,13 +23,17 @@ namespace BlazorDeportes.Data.Dapper.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"SELECT id, Name, NumJugadores FROM [dbo].[deportes]";
+            var sql = @"SELECT id, Name, NumJugadores FROM [dbo].[Deportes]";
 
             return await db.QueryAsync<Deporte>(sql.ToString(), new { });
         }
-        public Task<Deporte> GetDeporteDetails(int id)
+        public async Task<Deporte> GetDeporteDetails(int id)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+
+            var sql = @"SELECT id, Name, NumJugadores FROM [dbo].[Deportes] where id = @id";
+
+            return await db.QueryFirstOrDefaultAsync<Deporte>(sql.ToString(), new { id = id });
         }
         public async Task<bool> InsertDeporte(Deporte deporte)
         {
@@ -40,9 +44,15 @@ namespace BlazorDeportes.Data.Dapper.Repositories
                 new { deporte.Name, deporte.NumJugadores });
             return result > 0;
         }
-        public Task<bool> UpdateDeporte(Deporte deporte)
+        public async Task<bool> UpdateDeporte(Deporte deporte)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+
+            var sql = @"UPDATE Deportes SET Name = @Name, NumJugadores = @NumJugadores where id = @id";
+
+            var result = await db.ExecuteAsync(sql.ToString(), new { deporte.id, deporte.Name, deporte.NumJugadores });
+
+            return result > 0;
         }
         public Task<bool> DeleteDeporte(int id)
         {
