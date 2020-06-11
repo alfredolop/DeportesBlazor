@@ -1,0 +1,48 @@
+﻿@page "/deportelist"
+@using Model
+@using Interfaces
+@inject IDeporteService DeporteService
+
+<h3>DeporteList</h3>
+
+@if (deportes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>NumJugadores</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var deporte in deportes)
+            {
+            <tr>
+                <td>@deporte.Name</td>
+                <td>@deporte.NumJugadores</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    private IEnumerable<Deporte> deportes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            deportes = await DeporteService.GetAllDeportes();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+}

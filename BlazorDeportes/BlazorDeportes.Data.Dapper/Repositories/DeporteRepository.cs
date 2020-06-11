@@ -19,9 +19,13 @@ namespace BlazorDeportes.Data.Dapper.Repositories
         {
             return new SqlConnection(ConnectionString);
         }
-        public Task<IEnumerable<Deporte>> GetAllDeportes()
+        public async Task<IEnumerable<Deporte>> GetAllDeportes()
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+
+            var sql = @"SELECT id, Name, NumJugadores FROM [dbo].[deportes]";
+
+            return await db.QueryAsync<Deporte>(sql.ToString(), new { });
         }
         public Task<Deporte> GetDeporteDetails(int id)
         {

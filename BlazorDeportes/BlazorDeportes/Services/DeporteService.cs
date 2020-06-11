@@ -20,7 +20,7 @@ namespace BlazorDeportes.Services
         }
         public Task<IEnumerable<Deporte>> GetAllDeportes()
         {
-            throw new NotImplementedException();
+            return _deporterepository.GetAllDeportes();
         }
         public Task<Deporte> GetDetails(int id)
         {
