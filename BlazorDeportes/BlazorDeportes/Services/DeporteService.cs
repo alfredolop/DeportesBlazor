@@ -28,7 +28,7 @@ namespace BlazorDeportes.Services
         }
         public Task<bool> DeleteDeporte(int id)
         {
-            throw new NotImplementedException();
+            return _deporterepository.DeleteDeporte(id);
         }
         public Task<bool> SaveDeporte(Deporte deporte)
         {

@@ -1,11 +1,11 @@
-﻿@page "/deportedetails"
-@page "/deportedetails/{id:int}"
+﻿@page "/deportedelete/{id:int}"
 @using Model
 @using Interfaces
 @inject IDeporteService DeporteService
 @inject NavigationManager NavigationManager
 
-<h3>DeporteDetails</h3>
+<h3>DeporteDelete</h3>
+<p style="color:red;text-align:center">¿Estas seguro de borrar este deporte?</p>
 
 <EditForm Model="@deporte">
     <table class="table">
@@ -19,39 +19,32 @@
         </tr>
         <tr>
             <td colspan="2" style="text-align:center">
-                <input type="submit" value="Save" @onclick="SaveDeporte"/>
-                <input type="button" value="Cancel" @onclick="CancelDeporte" />
+                <input type="submit" value="Delete" @onclick="DeleteDeporte" />
+                <input type="button" value="Cancel" @onclick="Cancel" />
             </td>
         </tr>
     </table>
 </EditForm>
 
 @code {
+    Deporte deporte = new Deporte();
 
     [Parameter]
     public int id { get; set; }
 
-    Deporte deporte = new Deporte();
+    protected async Task DeleteDeporte()
+    {
+        await DeporteService.DeleteDeporte(id);
+        NavigationManager.NavigateTo("/deportelist");
+    }
 
-    protected void CancelDeporte()
-    {
-        NavigationManager.NavigateTo("/deportelist");
-    }
-    protected async Task SaveDeporte()
-    {
-        await DeporteService.SaveDeporte(deporte);
-        NavigationManager.NavigateTo("/deportelist");
-    }
     protected override async Task OnInitializedAsync()
     {
-        if (id == 0)
-        {
-
-        }
-        else
-        {
-            deporte = await DeporteService.GetDetails(id);
-        }
+        deporte = await DeporteService.GetDetails(id);
     }
 
+    protected void Cancel()
+    {
+        NavigationManager.NavigateTo("/deportelist");
+    }
 }

@@ -31,7 +31,7 @@ namespace BlazorDeportes.Data.Dapper.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"SELECT id, Name, NumJugadores FROM [dbo].[Deportes] where id = @id";
+            var sql = @"SELECT id, Name, NumJugadores FROM [dbo].[Deportes] WHERE id = @id";
 
             return await db.QueryFirstOrDefaultAsync<Deporte>(sql.ToString(), new { id = id });
         }
@@ -48,15 +48,21 @@ namespace BlazorDeportes.Data.Dapper.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"UPDATE Deportes SET Name = @Name, NumJugadores = @NumJugadores where id = @id";
+            var sql = @"UPDATE Deportes SET Name = @Name, NumJugadores = @NumJugadores WHERE id = @id";
 
             var result = await db.ExecuteAsync(sql.ToString(), new { deporte.id, deporte.Name, deporte.NumJugadores });
 
             return result > 0;
         }
-        public Task<bool> DeleteDeporte(int id)
+        public async Task<bool> DeleteDeporte(int id)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+
+            var sql = @"DELETE FROM Deportes WHERE id = @id";
+
+            var result = await db.ExecuteAsync(sql.ToString(), new { id = id });
+
+            return result > 0;
         }
 
     }
